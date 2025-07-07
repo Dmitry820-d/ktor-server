@@ -11,6 +11,7 @@ plugins {
     //id("com.github.johnrengelman.shadow") version "8.1.1"
 
     //id("com.github.johnrengelman.shadow") version "9.0.0" // shadow plugin for fat jars
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 }
 
 group = "com.example"
@@ -38,8 +39,8 @@ dependencies {
     implementation("io.ktor:ktor-server-auth")
     implementation("io.ktor:ktor-server-auth-jwt")
     implementation("io.ktor:ktor-server-call-logging")
-    implementation("io.ktor:ktor-server-content-negotiation")
-    implementation("io.ktor:ktor-serialization-kotlinx-json")
+    implementation("io.ktor:ktor-server-content-negotiation:3.2.1")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.2.1")
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("com.h2database:h2:$h2_version")
@@ -47,4 +48,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-test-host")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+
+    implementation("org.postgresql:postgresql:42.6.0") // версия зависит от актуальной
+    implementation("com.zaxxer:HikariCP:5.0.1") // пул соединений
 }

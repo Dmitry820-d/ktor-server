@@ -10,9 +10,11 @@ fun main() {
 }
 
 fun Application.module() {
+
     configureSecurity()
     configureMonitoring()
     configureSerialization()
     configureDatabases()
     configureRouting()
+    setJsonParser()
 }

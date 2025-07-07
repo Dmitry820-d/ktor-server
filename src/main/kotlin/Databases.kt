@@ -12,16 +12,29 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.launch
 import org.jetbrains.exposed.sql.*
 import org.slf4j.event.*
 
 fun Application.configureDatabases() {
+//    val database = Database.connect(
+//        url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
+//        user = "root",
+//        driver = "org.h2.Driver",
+//        password = "",
+//    )
     val database = Database.connect(
-        url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
+        url = "jdbc:h2:./h2db/test",  // теперь база хранится в файле test.mv.db
         user = "root",
         driver = "org.h2.Driver",
-        password = "",
+        password = ""
     )
+//    val database = Database.connect(
+//        url = "jdbc:postgresql://localhost:5432/mydatabase",
+//        user = "postgres",
+//        driver = "org.postgresql.Driver",
+//        password = "mypassword"
+//    )
     val userService = UserService(database)
     routing {
         // Create user
