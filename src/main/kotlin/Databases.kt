@@ -23,18 +23,18 @@ fun Application.configureDatabases() {
 //        driver = "org.h2.Driver",
 //        password = "",
 //    )
-    val database = Database.connect(
-        url = "jdbc:h2:./h2db/test",  // теперь база хранится в файле test.mv.db
-        user = "root",
-        driver = "org.h2.Driver",
-        password = ""
-    )
 //    val database = Database.connect(
-//        url = "jdbc:postgresql://localhost:5432/mydatabase",
-//        user = "postgres",
-//        driver = "org.postgresql.Driver",
-//        password = "mypassword"
+//        url = "jdbc:h2:./h2db/test",  // теперь база хранится в файле test.mv.db
+//        user = "root",
+//        driver = "org.h2.Driver",
+//        password = ""
 //    )
+    val database = Database.connect(
+        url = "jdbc:postgresql://localhost:5432/my_db",
+        user = "postgres",
+        driver = "org.postgresql.Driver",
+        password = "1234"
+    )
     val userService = UserService(database)
     routing {
         // Create user
