@@ -8,9 +8,6 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "2.1.10"
     id("io.ktor.plugin") version "3.2.1"
-    //id("com.github.johnrengelman.shadow") version "8.1.1"
-
-    //id("com.github.johnrengelman.shadow") version "9.0.0" // shadow plugin for fat jars
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
 }
 
