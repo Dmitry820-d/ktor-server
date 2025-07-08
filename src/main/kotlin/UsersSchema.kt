@@ -19,9 +19,19 @@ class UserService(database: Database) {
         override val primaryKey = PrimaryKey(id)
     }
 
+    object Persons : Table() {
+        val id = integer("id").autoIncrement()
+        val name = varchar("name", length = 50)
+        val age = integer("age")
+        val status = varchar("status", length = 50)
+
+        override val primaryKey = PrimaryKey(id)
+    }
+
     init {
         transaction(database) {
             SchemaUtils.create(Users)
+            SchemaUtils.create(Persons)
         }
     }
 

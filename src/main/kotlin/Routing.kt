@@ -20,5 +20,17 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello World!")
         }
+        get("/my_message") {
+            call.respondText("Hello!")
+        }
+//        post("/create"){
+//            val user = call.receive<ExposedUser>()
+//            println(user)
+//        }
+        post("/create") {
+            val rawBody = call.receiveText() // Получаем сырой текст запроса
+            println(rawBody)                 // Выводим полученный текст в консоль
+            call.respondText("Получено: $rawBody") // Отвечаем клиенту текстом
+        }
     }
 }
